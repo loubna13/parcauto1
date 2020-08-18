@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Repository\VehiculeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

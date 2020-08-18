@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Repository\VisitetechniqueRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

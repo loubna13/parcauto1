@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use App\Repository\MissionRepository;
 
 use Doctrine\ORM\Mapping as ORM;
 

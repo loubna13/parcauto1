@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Repository\ServiceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

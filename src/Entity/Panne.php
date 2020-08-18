@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Repository\PanneRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

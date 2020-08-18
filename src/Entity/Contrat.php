@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use App\Repository\ContratRepository;
 
 use Doctrine\ORM\Mapping as ORM;
 

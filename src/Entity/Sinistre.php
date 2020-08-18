@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Repository\SinistreRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
