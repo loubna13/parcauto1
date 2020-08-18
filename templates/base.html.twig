@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+           <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	       <link href="{{ asset('css/style.css')}}" rel='stylesheet' type='text/css' />
+
+        {% endblock %}
+    </head>
+
+    <body>
+    <nav class="navbar navbar-right navbar-expand-lg navbar-light bg-light">
+        <img class="logo" width="60"  src="{{ asset('../images/logo.jpg')}}">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="nav-link active" href="{{ path('individu_index')}}">Utilisateur</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Catégorie</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Véhicule</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Contrat</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ path('fournisseur_index')}}">Fournisseur</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">S'inistre</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Réservations</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Interventions</a>
+                </li>
+            </ul>
+                    
+                <ul class="nav-item active"> 
+                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					
+                          <p class class="float-right"><em> Bonjour {{ app.user.Nom }}</em> <a href="{{ path('app_logout')}}" class="deconnexion">Deconnexion</a></p>
+                        
+                    {% else %}
+                          <a href="{{path('app_register')}}">Je m'inscris !</a>
+                       
+                          <a href="{{path('app_login')}}">Se connecter</a>
+                 </ul>          
+
+				<br>
+                <li>
+					    <em>Bonjour, visiteur!</em>
+				</li>
+					
+					{% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+				<li>
+                    <button type="button" class="btn btn-dark">
+                            <a href="{{path('easyadmin')}}" target="_blank">Espace admin</a>
+                    </button> 
+                    
+				</li> 
+					{% endif %} 
+        
+        </div>
+    </nav>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+                
+        {% endblock %}
+    </body>
+</html>

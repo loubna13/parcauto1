@@ -1,0 +1,13 @@
+.carousel-inner img {
+  width: 100%;
+  max-height: 540px;
+}
+nav {
+  background: #b8a47e;
+}
+nav a {
+  text-align: center;
+}
+nav li {
+  float: left;
+}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Individu index{% endblock %}
+
+{% block body %}
+    <h1>Individu index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idindividu</th>
+                <th>Idvehicule</th>
+                <th>Nomindividu</th>
+                <th>Prenomindividu</th>
+                <th>Telindividu</th>
+                <th>Cinindividu</th>
+                <th>Pathphotoindividu</th>
+                <th>Interne</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for individu in individus %}
+            <tr>
+                <td>{{ individu.idindividu }}</td>
+                <td>{{ individu.idvehicule }}</td>
+                <td>{{ individu.nomindividu }}</td>
+                <td>{{ individu.prenomindividu }}</td>
+                <td>{{ individu.telindividu }}</td>
+                <td>{{ individu.cinindividu }}</td>
+                <td>{{ individu.pathphotoindividu }}</td>
+                <td>{{ individu.interne }}</td>
+                <td>
+                    <a href="{{ path('individu_show', {'idindividu': individu.idindividu}) }}">show</a>
+                    <a href="{{ path('individu_edit', {'idindividu': individu.idindividu}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('individu_new') }}">Create new</a>
+{% endblock %}
