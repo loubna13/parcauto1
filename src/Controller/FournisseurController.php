@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Controller;
-
+use App\Repository\FournisseurRepository;
 use App\Entity\Fournisseur;
 use App\Form\FournisseurType;
-use App\Entity\FournisseurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

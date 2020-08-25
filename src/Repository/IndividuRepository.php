@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Repository;
-
 use App\Entity\Individu;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -18,23 +17,36 @@ class IndividuRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Individu::class);
     }
+    
 
     // /**
     //  * @return Individu[] Returns an array of Individu objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByName($nom,$prenom)
     {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('q')
+            ->andWhere('q.nomindividu LIKE :nom')
+            ->setParameter('nom', $nom)
+            ->setMaxResults(1)
             ->getQuery()
             ->getResult()
         ;
+
+        return $this->createQueryBuilder('q')
+            ->andWhere('q.prenomindividu LIKE :prenom')
+            ->setParameter('prenom', $prenom)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+
+       
+
+        
     }
-    */
+    
+    
 
     /*
     public function findOneBySomeField($value): ?Individu

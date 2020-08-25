@@ -1,4 +1,56 @@
+{% block body %}
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="container">
+	        <div class="form-row">
+	            <div class="form-group col-md-6">
+	                <label >Nom</label>
+	              {{ form_widget(form.nomindividu ,{ 'attr' :{'placeholder':'Nomindividu','class':'nomDeMaClasse', 'class':'form-control'}})}}
+	            </div>
+	        </div>
+
+	        <div class="form-row">
+	           <div class="form-group col-md-6">
+	            <label for="">Prénom</label>
+	             
+	             {{ form_widget(form.prenomindividu ,{ 'attr' :{'placeholder':'Prénom', 'class':'form-control'}}) }}
+	            </div>       
+	        </div>
+
+	        <div class="form-row">
+	            <div class="form-group col-md-6">
+	                <label >Téléphone</label>
+	                {{ form_widget(form.telindividu ,{ 'attr' :{'placeholder':'Téléphone','class':'form-control'}}) }}
+	            </div>
+	        </div>
+	        <div class="form-row">
+	             <div class="form-group col-md-6">
+	                 <label >C.I.N</label>
+
+	             {{ form_widget(form.cinindividu ,{ 'attr' :{'placeholder':'C.I.N', 'class':'form-control'}}) }}
+	             </div>
+	        </div>
+            <div class="form-row">
+	             <div class="form-group col-md-6">
+	                 <label >Pathphoto</label>
+
+	             {{ form_widget(form.pathphotoindividu,{ 'attr' :{'placeholder':'Pathphoto','class':'form-control'}}) }}
+	             </div>
+	        </div>
+           <div class="form-row">
+	            <div class="form-group col-md-6">
+	               <label >Interne</label>
+	               <select  name="interne" class="form-control">
+	                    <option value="1">Interne</option>
+	                    <option value="2">Intervenant</option>
+	                </select>
+	           </div>          
+	        </div>
+	    {{ form_widget(form) }}
+	    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+
+   </div>
+    <br>
+    <br>
 {{ form_end(form) }}
+{% endblock %}
+

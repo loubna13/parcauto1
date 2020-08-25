@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Individu{% endblock %}
+{% block title %}Gestion des utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>Edit Individu</h1>
+ <div class="container">
+    <h1>Gestion des utilisateurs</h1>
 
-    {{ include('individu/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('individu/_form.html.twig', {'button_label': 'Modifier'}) }}<a href="{{ path('individu_index') }}">Retour</a>
 
-    <a href="{{ path('individu_index') }}">back to list</a>
-
-    {{ include('individu/_delete_form.html.twig') }}
+ </div>   
 {% endblock %}

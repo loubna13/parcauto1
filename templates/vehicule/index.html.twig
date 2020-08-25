@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicule index{% endblock %}
+
+{% block body %}
+    <h1>Vehicule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idvehicule</th>
+                <th>Idmodele</th>
+                <th>Idtypevehicule</th>
+                <th>Idfournisseur</th>
+                <th>Idsite</th>
+                <th>Idcategorie</th>
+                <th>Idtypecarburant</th>
+                <th>Idservice</th>
+                <th>FouIdfournisseur</th>
+                <th>Nbrportevehicule</th>
+                <th>Puissancevehicule</th>
+                <th>Nbrplacevehicule</th>
+                <th>Cartegrisevehicule</th>
+                <th>Immatriculationvehicule</th>
+                <th>Pathphotovehicule</th>
+                <th>Dateaquisitionvehicule</th>
+                <th>Datedebutassurance</th>
+                <th>Datefinassurance</th>
+                <th>Coutassurance</th>
+                <th>Datedebutreparation</th>
+                <th>Datefinreparation</th>
+                <th>Coutreparation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.idvehicule }}</td>
+                <td>{{ vehicule.idmodele }}</td>
+                <td>{{ vehicule.idtypevehicule }}</td>
+                <td>{{ vehicule.idfournisseur }}</td>
+                <td>{{ vehicule.idsite }}</td>
+                <td>{{ vehicule.idcategorie }}</td>
+                <td>{{ vehicule.idtypecarburant }}</td>
+                <td>{{ vehicule.idservice }}</td>
+                <td>{{ vehicule.fouIdfournisseur }}</td>
+                <td>{{ vehicule.nbrportevehicule }}</td>
+                <td>{{ vehicule.puissancevehicule }}</td>
+                <td>{{ vehicule.nbrplacevehicule }}</td>
+                <td>{{ vehicule.cartegrisevehicule }}</td>
+                <td>{{ vehicule.immatriculationvehicule }}</td>
+                <td>{{ vehicule.pathphotovehicule }}</td>
+                <td>{{ vehicule.dateaquisitionvehicule ? vehicule.dateaquisitionvehicule|date('Y-m-d') : '' }}</td>
+                <td>{{ vehicule.datedebutassurance ? vehicule.datedebutassurance|date('Y-m-d') : '' }}</td>
+                <td>{{ vehicule.datefinassurance ? vehicule.datefinassurance|date('Y-m-d') : '' }}</td>
+                <td>{{ vehicule.coutassurance }}</td>
+                <td>{{ vehicule.datedebutreparation ? vehicule.datedebutreparation|date('Y-m-d') : '' }}</td>
+                <td>{{ vehicule.datefinreparation ? vehicule.datefinreparation|date('Y-m-d') : '' }}</td>
+                <td>{{ vehicule.coutreparation }}</td>
+                <td>
+                    <a href="{{ path('vehicule_show', {'idvehicule': vehicule.idvehicule}) }}">show</a>
+                    <a href="{{ path('vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="23">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vehicule_new') }}">Create new</a>
+{% endblock %}

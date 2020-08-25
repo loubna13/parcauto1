@@ -1,4 +1,40 @@
+{% block body %}
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="container">
+	        <div class="form-row">
+	            <div class="form-group col-md-6">
+	                <label >Nom du fournisseur</label>
+	              {{ form_widget(form.nomfournisseur ,{ 'attr' :{'placeholder':'Nom du fournisseur','class':'nomDeMaClasse', 'class':'form-control'}})}}
+	            </div>
+	        </div>
+
+	        <div class="form-row">
+	           <div class="form-group col-md-6">
+	            <label for="">Raison Social</label>
+	             
+	             {{ form_widget(form.rsfournisseur ,{ 'attr' :{'placeholder':'Rsfournisseur','class':'nomDeMaClasse', 'class':'form-control'}}) }}
+	            </div>       
+	        </div>
+
+	        <div class="form-row">
+	            <div class="form-group col-md-6">
+	                <label >Ville</label>
+	                {{ form_widget(form.villefournisseur ,{ 'attr' :{'placeholder':'Ville','class':'nomDeMaClasse', 'class':'form-control'}}) }}
+	            </div>
+	        </div>
+	        <div class="form-row">
+	             <div class="form-group col-md-6">
+	                 <label >Téléphone</label>
+
+	             {{ form_widget(form.telfournisseur ,{ 'attr' :{'placeholder':'Téléphone','class':'nomDeMaClasse', 'class':'form-control'}}) }}
+	             </div>
+	        </div>
+	    {{ form_widget(form) }}
+	    <button class="btn btn-primary">{{ button_label|default('Enregistrerr') }}</button>
+
+   </div>
+    <br>
+    <br>
 {{ form_end(form) }}
+{% endblock %}
+

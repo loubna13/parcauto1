@@ -25,9 +25,9 @@ class Individu
     /**
      * @var int|null
      *
-     * @ORM\Column(name="IDVEHICULE", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="IDVEHICULE", type="integer", nullable=false)
      */
-    private $idvehicule = 'NULL';
+    private $idvehicule;
 
     /**
      * @var string
@@ -69,7 +69,7 @@ class Individu
      *
      * @ORM\Column(name="INTERNE", type="smallint", nullable=true, options={"default"="NULL"})
      */
-    private $interne = 'NULL';
+    private $interne; //=NULL a rajouter en cas de prob ici et dans id vehicule
 
     public function getIdindividu(): ?int
     {

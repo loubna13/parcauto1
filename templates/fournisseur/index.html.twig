@@ -1,32 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fournisseur index{% endblock %}
+{% block title %}Liste des Fournisseurs{% endblock %}
 
 {% block body %}
-    <h1>Fournisseur index</h1>
+<div class="container">
+    <h1>Liste des Fournisseurs</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Idfournisseur</th>
                 <th>Nomfournisseur</th>
                 <th>Rsfournisseur</th>
                 <th>Villefournisseur</th>
                 <th>Telfournisseur</th>
-                <th>actions</th>
+                <th>Visualiser</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
         {% for fournisseur in fournisseurs %}
             <tr>
-                <td>{{ fournisseur.idfournisseur }}</td>
                 <td>{{ fournisseur.nomfournisseur }}</td>
                 <td>{{ fournisseur.rsfournisseur }}</td>
                 <td>{{ fournisseur.villefournisseur }}</td>
                 <td>{{ fournisseur.telfournisseur }}</td>
                 <td>
-                    <a href="{{ path('fournisseur_show', {'idfournisseur': fournisseur.idfournisseur}) }}">show</a>
-                    <a href="{{ path('fournisseur_edit', {'idfournisseur': fournisseur.idfournisseur}) }}">edit</a>
+                    <a href="{{ path('fournisseur_show', {'idfournisseur': fournisseur.idfournisseur}) }}"><img src="{{ asset('../images/search.png')}}"></a>
+                </td>
+                <td>
+                    <a href="{{ path('fournisseur_edit', {'idfournisseur': fournisseur.idfournisseur}) }}"><img src="{{ asset('../images/edit.png')}}"></a>
+                </td>
+                <td>    
+                    <a href="{{ path('fournisseur_delete', {'idfournisseur': fournisseur.idfournisseur}) }}"><img src="{{ asset('../images/delete.png')}}"></a>
                 </td>
             </tr>
         {% else %}
@@ -36,6 +42,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('fournisseur_new') }}">Create new</a>
+    <a href="{{ path('fournisseur_new') }}">Ajouter un fournisseur</a>
+</div>
+    
 {% endblock %}

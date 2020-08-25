@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 use App\Repository\FournisseurRepository;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**

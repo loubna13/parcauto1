@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Vehicule;
+use App\Repository\VehiculeRepository;
+use App\Form\VehiculeType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -18,6 +20,22 @@ class VehiculeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Vehicule::class);
     }
+
+    public function findByField($immatriculationvehicule)
+    {
+        
+        return $this->createQueryBuilder('q')
+        ->andWhere('q.immatriculationvehicule.vehicule LIKE :immatriculationvehicule')
+        ->setParameter('immatriculationvehicule', $immatriculationvehicule)
+        ->setMaxResults(1)
+        ->getQuery()
+        ->getResult()
+    ;
+        
+    }
+    
+
+    
 
     // /**
     //  * @return Vehicule[] Returns an array of Vehicule objects

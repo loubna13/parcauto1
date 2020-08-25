@@ -1,38 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Individu index{% endblock %}
+{% block title %}Liste des utilisateurs{% endblock %}
 
-{% block body %}
-    <h1>Individu index</h1>
+{% block body %}   
 
-    <table class="table">
+<div class="container">
+    <h1>Liste des utilisateurs</h1>
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Idindividu</th>
-                <th>Idvehicule</th>
-                <th>Nomindividu</th>
-                <th>Prenomindividu</th>
-                <th>Telindividu</th>
-                <th>Cinindividu</th>
-                <th>Pathphotoindividu</th>
-                <th>Interne</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th>C.I.N</th>
+                <th>Pathphoto</th>
+                <th>Vehicule</th>
+                <th>Visualiser</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
         {% for individu in individus %}
             <tr>
-                <td>{{ individu.idindividu }}</td>
-                <td>{{ individu.idvehicule }}</td>
                 <td>{{ individu.nomindividu }}</td>
                 <td>{{ individu.prenomindividu }}</td>
                 <td>{{ individu.telindividu }}</td>
                 <td>{{ individu.cinindividu }}</td>
                 <td>{{ individu.pathphotoindividu }}</td>
-                <td>{{ individu.interne }}</td>
+                <td>{{ individu.idvehicule}}</td>
+                <td>    
+                    <a href="{{ path('individu_edit', {'idindividu': individu.idindividu}) }}"><img src="{{ asset('../images/search.png')}}"></a>
+                </td>
                 <td>
-                    <a href="{{ path('individu_show', {'idindividu': individu.idindividu}) }}">show</a>
-                    <a href="{{ path('individu_edit', {'idindividu': individu.idindividu}) }}">edit</a>
+                    <a href="{{ path('individu_show', {'idindividu': individu.idindividu}) }}"><img src="{{ asset('../images/edit.png')}}"></a>
+                </td>
+                 <td>    
+                    <a href="{{ path('individu_delete', {'idindividu': individu.idindividu}) }}"><img src="{{ asset('../images/delete.png')}}"></a>
                 </td>
             </tr>
         {% else %}
@@ -42,6 +46,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('individu_new') }}">Create new</a>
+    <a class="text-center" href="{{ path('individu_new') }}">Ajouter un utilisateur</a>
+</div>
+    
 {% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Rechercher un utilisateur{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    <div class="container">
+        <h1>Rechercher un utilisateur</h1>
+        <div class="container">
+        <h3>Nom de l'utilisateur : <h3>
+                <div class="form-row">      
+                    <div class="form-group col-md-4">                        
+                        <label >Entrer votre nom :</label>
+                      {{ form_widget(form.nom,{ 'attr' :{'placeholder':'Nom','class':'form-control'}})}}
+
+                    </div>
+                </div>
+                <div class="form-row">    
+                    <div class="form-group col-md-4">
+                        <label for="">Entrer votre prénom :</label>
+                       {{ form_widget(form.prenom ,{ 'attr' :{'placeholder':'Prenom','class':'form-control'}})}}
+
+                    </div>      
+                </div>
+                <button class="btn btn-primary">{{ button_label|default('Rechercher') }}</button> 
+
+                 <div class="form-row">
+                    <div class="form-group col-md-6"> 
+                        <h3>Matricule : <h3>
+                        <label>Entrer le matricule :</label>
+	            
+                 
+                    </div>
+                    
+                </div>
+                <button type="submit" class="btn btn-primary">{{ button_label|default('Rechercher') }}</button> 
+    </div>
+    
+    {% for individu in individus %}
+            
+        {{ individu.nomindividu }}
+        {{ individu.prenomindividu }}    
+
+       {% if individu %}
+                <table class="table table-bordered">
+                
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                            <tr>
+                                <td>{{ individu.nomindividu }}</td>
+                                <td>{{ individu.prenomindividu }}</td>
+                            </tr>
+                    
+                    </tbody>
+                </table>
+        {% endif %} 
+    {% endfor %} 
+
+    {# {% for immatriculationvehicule in vehicule %}
+            
+        {{ vehicule.immatriculationvehicule}}
+        
+
+       {% if immatriculationvehicule %}
+                <table class="table table-bordered">
+                
+                    <thead>
+                        <tr>
+                            <th>immatriculationvehicule</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                            <tr>
+                               <td> {{ vehicule.immatriculationvehicule}}</td>
+                            </tr>
+                    
+                    </tbody>
+                </table>
+        {% endif %} 
+    {% endfor %}    #}
+
+        
+      <br>
+      <br>   
+ </div>
+{{ form_end(form) }}
+{% endblock %} 

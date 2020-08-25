@@ -2,29 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\Individu;
+use App\Entity\PropertySearch;
+use App\Entity\Vehicule;
 use Symfony\Component\Form\AbstractType;
+use App\Form\VehiculeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class IndividuType extends AbstractType
+class PropertySearchType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomindividu')
-            ->add('prenomindividu')
-            ->add('telindividu')
-            ->add('cinindividu')
-            ->add('pathphotoindividu')
-            ->add('interne')
+            ->add('nom')
+            ->add('prenom')
+            ->add('immmatriculationvehicule')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Individu::class,
+            'data_class' => PropertySearch::class,
         ]);
     }
 }

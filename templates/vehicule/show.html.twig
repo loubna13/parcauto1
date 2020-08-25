@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vehicule{% endblock %}
+
+{% block body %}
+    <h1>Vehicule</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idvehicule</th>
+                <td>{{ vehicule.idvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Idmodele</th>
+                <td>{{ vehicule.idmodele }}</td>
+            </tr>
+            <tr>
+                <th>Idtypevehicule</th>
+                <td>{{ vehicule.idtypevehicule }}</td>
+            </tr>
+            <tr>
+                <th>Idfournisseur</th>
+                <td>{{ vehicule.idfournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Idsite</th>
+                <td>{{ vehicule.idsite }}</td>
+            </tr>
+            <tr>
+                <th>Idcategorie</th>
+                <td>{{ vehicule.idcategorie }}</td>
+            </tr>
+            <tr>
+                <th>Idtypecarburant</th>
+                <td>{{ vehicule.idtypecarburant }}</td>
+            </tr>
+            <tr>
+                <th>Idservice</th>
+                <td>{{ vehicule.idservice }}</td>
+            </tr>
+            <tr>
+                <th>FouIdfournisseur</th>
+                <td>{{ vehicule.fouIdfournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Nbrportevehicule</th>
+                <td>{{ vehicule.nbrportevehicule }}</td>
+            </tr>
+            <tr>
+                <th>Puissancevehicule</th>
+                <td>{{ vehicule.puissancevehicule }}</td>
+            </tr>
+            <tr>
+                <th>Nbrplacevehicule</th>
+                <td>{{ vehicule.nbrplacevehicule }}</td>
+            </tr>
+            <tr>
+                <th>Cartegrisevehicule</th>
+                <td>{{ vehicule.cartegrisevehicule }}</td>
+            </tr>
+            <tr>
+                <th>Immatriculationvehicule</th>
+                <td>{{ vehicule.immatriculationvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Pathphotovehicule</th>
+                <td>{{ vehicule.pathphotovehicule }}</td>
+            </tr>
+            <tr>
+                <th>Dateaquisitionvehicule</th>
+                <td>{{ vehicule.dateaquisitionvehicule ? vehicule.dateaquisitionvehicule|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datedebutassurance</th>
+                <td>{{ vehicule.datedebutassurance ? vehicule.datedebutassurance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefinassurance</th>
+                <td>{{ vehicule.datefinassurance ? vehicule.datefinassurance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Coutassurance</th>
+                <td>{{ vehicule.coutassurance }}</td>
+            </tr>
+            <tr>
+                <th>Datedebutreparation</th>
+                <td>{{ vehicule.datedebutreparation ? vehicule.datedebutreparation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefinreparation</th>
+                <td>{{ vehicule.datefinreparation ? vehicule.datefinreparation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Coutreparation</th>
+                <td>{{ vehicule.coutreparation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('vehicule_index') }}">back to list</a>
+
+    <a href="{{ path('vehicule_edit', {'idvehicule': vehicule.idvehicule}) }}">edit</a>
+
+    {{ include('vehicule/_delete_form.html.twig') }}
+{% endblock %}
