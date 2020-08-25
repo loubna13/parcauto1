@@ -7,7 +7,7 @@ class PropertySearch
 
    private $nom;
    private $prenom;
-   private $immmatriculationvehicule;
+   private $immatriculationvehicule;
 
    
    public function getNom(): ?string
@@ -35,12 +35,12 @@ class PropertySearch
    }
    public function getImmmatriculationvehicule(): ?string
    {
-       return $this->immmatriculationvehicule;
+       return $this->immatriculationvehicule;
    }
 
-   public function setImmmatriculationvehicule(string $immmatriculationvehicule): self
+   public function setImmmatriculationvehicule(string $immatriculationvehicule): self
    {
-       $this->immmatriculationvehicule= $immmatriculationvehicule;
+       $this->immatriculationvehicule= $immatriculationvehicule;
 
        return $this;
    }

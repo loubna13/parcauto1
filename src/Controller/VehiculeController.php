@@ -97,7 +97,7 @@ class VehiculeController extends AbstractController
     }
 
     /**
-            *@Route("PropertySearch",name="Property_Search")
+            *@Route("PropertySearchv",name="Property_Search")
             */
             public function search(Request $request,VehiculeRepository $vehiculeRepository )
             {
