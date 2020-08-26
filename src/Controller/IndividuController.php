@@ -33,6 +33,50 @@ class IndividuController extends AbstractController
         ]);
     }
 
+
+        /**
+            *@Route("/search",name="individu_search")
+            */
+            public function search(Request $request, IndividuRepository $individuRepository,VehiculeRepository $vehiculeRepository )
+            {
+                        $propertySearch = new PropertySearch();
+                        $form = $this->createForm(PropertySearchType::class,$propertySearch);
+                        $form->handleRequest($request);
+                    
+                    //initialement le tableau des articles est vide, je l'ai retiré et jai ajouté ligne 111
+                    //c.a.d on affiche les utilisateurs que lorsqu'on clique sur le bouton recherche
+                    $individus=$individuRepository-> findAll();
+                    if($form->isSubmitted() && $form->isValid()) {
+                    //on récupère le nom d'utilisateur tapé dans le formulaire
+                        $nom = $propertySearch->getNom(); 
+                        $prenom = $propertySearch->getPrenom();  
+                        if ($nom!="") {
+    
+                            //si on a fourni un nom d'utilisateur' on affiche tous les articles ayant ce nom
+                            $individus=$individuRepository->findByName($nom, $prenom);
+    
+                        }    
+                   };
+                        return  $this->render('PropertySearch/index.html.twig',[ 'form' =>$form->createView(), 'individus' => $individus ]); 
+                      
+                    
+                        $immatriculationvehicule=$vehiculeRepository-> findAll();
+                        if($form->isSubmitted() && $form->isValid()) {
+                        //on récupère le nom du matricule tapé dans le formulaire
+                            $immatriculationvehicule = $propertySearch->getImmatriculationvehicule(); 
+                
+                            if ($immatriculationvehicule!="") {
+    
+                            //si on a fourni un nom d'utilisateur' on affiche tous les articles ayant ce nom
+                            $immatriculationvehicule=$vehiculeRepository->findByField($immatriculationvehicule);
+                            }
+            
+                       }
+                       return  $this->render('PropertySearch/index.html.twig',[ 'form' =>$form->createView(), 'immatriculationvehicule' => $immatriculationvehicule ]);    
+    
+            }
+
+
     /**
      * @Route("/new", name="individu_new", methods={"GET","POST"})
      */
@@ -65,6 +109,9 @@ class IndividuController extends AbstractController
             'individu' => $individu,
         ]);
     }
+
+
+
 
     /**
      * @Route("/{idindividu}/edit", name="individu_edit", methods={"GET","POST"})
@@ -100,53 +147,5 @@ class IndividuController extends AbstractController
         return $this->redirectToRoute('individu_index');
     }
 
-            /**
-            *@Route("PropertySearch",name="Property_Search")
-            */
-        public function search(Request $request, IndividuRepository $individuRepository,VehiculeRepository $vehiculeRepository )
-        {
-                    $propertySearch = new PropertySearch();
-                    $form = $this->createForm(PropertySearchType::class,$propertySearch);
-                    $form->handleRequest($request);
-                
-                //initialement le tableau des articles est vide, je l'ai retiré et jai ajouté ligne 111
-                //c.a.d on affiche les utilisateurs que lorsqu'on clique sur le bouton recherche
-                $individus=$individuRepository-> findAll();
-                if($form->isSubmitted() && $form->isValid()) {
-                //on récupère le nom d'utilisateur tapé dans le formulaire
-                    $nom = $propertySearch->getNom(); 
-                    $prenom = $propertySearch->getPrenom();  
-                    if ($nom!="") {
-
-                        //si on a fourni un nom d'utilisateur' on affiche tous les articles ayant ce nom
-                        $individus=$individuRepository->findByName($nom, $prenom);
-
-                    }    
-               };
-                    return  $this->render('PropertySearch/index.html.twig',[ 'form' =>$form->createView(), 'individus' => $individus ]); 
-                  
-                
-                    $immatriculationvehicule=$vehiculeRepository-> findAll();
-                    if($form->isSubmitted() && $form->isValid()) {
-                    //on récupère le nom du matricule tapé dans le formulaire
-                        $immatriculationvehicule = $propertySearch->getImmatriculationvehicule(); 
-            
-                        if ($immatriculationvehicule!="") {
-
-                        //si on a fourni un nom d'utilisateur' on affiche tous les articles ayant ce nom
-                        $immatriculationvehicule=$vehiculeRepository->findByField($immatriculationvehicule);
-                        }
-        
-                   }
-                   return  $this->render('PropertySearch/index.html.twig',[ 'form' =>$form->createView(), 'immatriculationvehicule' => $immatriculationvehicule ]); 
-
-                   
-
-                    
-
-
-
-
-        }
     
 }

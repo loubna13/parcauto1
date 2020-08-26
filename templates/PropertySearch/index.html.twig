@@ -64,32 +64,28 @@
         {% endif %} 
     {% endfor %} 
 
-    {% for immatriculationvehicule in immatriculationvehicule %}
+    {% for i in immatriculationvehicule %}
             
-        {{ vehicule.immatriculationvehicule}}
-        
 
-       {% if immatriculationvehicule %}
-                <table class="table table-bordered">
-                
-                    <thead>
-                        <tr>
-                            <th>immatriculationvehicule</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
+        {% if i %}
+                    <table class="table table-bordered">
                     
+                        <thead>
                             <tr>
-                               <td> {{ vehicule.immatriculationvehicule}}</td>
+                                <th>immatriculationvehicule</th>
+                                
                             </tr>
-                    
-                    </tbody>
-                </table>
-        {% endif %} 
-    {% endfor %}   
-
-        
+                        </thead>
+                        <tbody>
+                        
+                                <tr>
+                                <td> {{ i.immatriculationvehicule }}</td>
+                                </tr>
+                        
+                        </tbody>
+                    </table>
+            {% endif %} 
+        {% endfor %}   
       <br>
       <br>   
  </div>

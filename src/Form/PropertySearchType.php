@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\PropertySearch;
 use App\Entity\Vehicule;
 use Symfony\Component\Form\AbstractType;
-use App\Form\VehiculeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

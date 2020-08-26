@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GestionDesUtilisateursController extends AbstractController
 {
     /**
-     * @Route("/gestion/des/utilisateurs", name="gestion_des_utilisateurs")
+     * @Route("/gestion_des_utilisateurs", name="gestion_des_utilisateurs")
      */
     public function index()
     {

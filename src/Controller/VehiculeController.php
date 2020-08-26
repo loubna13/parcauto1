@@ -96,5 +96,4 @@ class VehiculeController extends AbstractController
         return $this->redirectToRoute('vehicule_index');
     }
 
-        
 }
