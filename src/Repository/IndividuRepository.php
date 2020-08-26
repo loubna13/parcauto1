@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 use App\Entity\Individu;
+use App\Entity\Vehicule;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -40,9 +41,18 @@ class IndividuRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
-
-       
-
+        
+    }
+    public function findByField($immatriculationvehicule)
+    {
+        
+        return $this->createQueryBuilder('q')
+        ->andWhere('q.immatriculationvehicule.vehicule LIKE :immatriculationvehicule')
+        ->setParameter('immatriculationvehicule', $immatriculationvehicule)
+        ->setMaxResults(1)
+        ->getQuery()
+        ->getResult()
+    ;
         
     }
     

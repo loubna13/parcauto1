@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
+use App\Entity\Individu;
 use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -68,15 +69,14 @@ class AppFixtures extends Fixture
         }
         for($i=0; $i<10; $i++){
 
-            $individu = new User();
-            $individu->setNomIndividu($this->faker->name);
-            $individu->setPrenomIndividu($this->faker->firstName);
-            $individu->setTelIndividu($this->faker->phoneNumber);
-            $individu->setCinIndividu($this->faker->name);
-            $individu->setPathphotoIndividu($this->faker->phoneNumber);
+            $individu = new Individu();
+            $individu->setIdvehicule($this->faker->name);
+            $individu->setNomindividu($this->faker->name);
+            $individu->setPrenomindividu($this->faker->firstName);
+            $individu->setTelindividu($this->faker->phoneNumber);
+            $individu->setCinindividu('');
+            $individu->setPathphotoindividu($this->faker->phoneNumber);
 
-            $password = $this->encoder->encodePassword($individu, 'pass_1234');
-            $individu->setPassword($password);
             $manager->persist($individu); 
 
         }

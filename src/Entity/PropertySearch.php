@@ -33,12 +33,12 @@ class PropertySearch
 
        return $this;
    }
-   public function getImmmatriculationvehicule(): ?string
+   public function getImmatriculationvehicule(): ?string
    {
        return $this->immatriculationvehicule;
    }
 
-   public function setImmmatriculationvehicule(string $immatriculationvehicule): self
+   public function setImmatriculationvehicule(string $immatriculationvehicule): self
    {
        $this->immatriculationvehicule= $immatriculationvehicule;
 

@@ -169,6 +169,11 @@ class Vehicule
      */
     private $coutreparation = 'NULL';
 
+    /**
+     * @ORM\OneToOne(targetEntity=Individu::class, cascade={"persist", "remove"})
+     */
+    private $individu;
+
     public function getIdvehicule(): ?int
     {
         return $this->idvehicule;
@@ -422,6 +427,18 @@ class Vehicule
     public function setCoutreparation(?float $coutreparation): self
     {
         $this->coutreparation = $coutreparation;
+
+        return $this;
+    }
+
+    public function getIndividu(): ?Individu
+    {
+        return $this->individu;
+    }
+
+    public function setIndividu(?Individu $individu): self
+    {
+        $this->individu = $individu;
 
         return $this;
     }

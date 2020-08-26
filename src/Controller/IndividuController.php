@@ -103,7 +103,7 @@ class IndividuController extends AbstractController
             /**
             *@Route("PropertySearch",name="Property_Search")
             */
-        public function search(Request $request, IndividuRepository $individuRepository, VehiculeRepository $vehiculeRepository )
+        public function search(Request $request, IndividuRepository $individuRepository,VehiculeRepository $vehiculeRepository )
         {
                     $propertySearch = new PropertySearch();
                     $form = $this->createForm(PropertySearchType::class,$propertySearch);
@@ -124,7 +124,29 @@ class IndividuController extends AbstractController
                     }    
                };
                     return  $this->render('PropertySearch/index.html.twig',[ 'form' =>$form->createView(), 'individus' => $individus ]); 
+                  
+                
+                    $immatriculationvehicule=$vehiculeRepository-> findAll();
+                    if($form->isSubmitted() && $form->isValid()) {
+                    //on récupère le nom du matricule tapé dans le formulaire
+                        $immatriculationvehicule = $propertySearch->getImmatriculationvehicule(); 
+            
+                        if ($immatriculationvehicule!="") {
+
+                        //si on a fourni un nom d'utilisateur' on affiche tous les articles ayant ce nom
+                        $immatriculationvehicule=$vehiculeRepository->findByField($immatriculationvehicule);
+                        }
+        
+                   }
+                   return  $this->render('PropertySearch/index.html.twig',[ 'form' =>$form->createView(), 'immatriculationvehicule' => $immatriculationvehicule ]); 
+
+                   
+
                     
+
+
+
+
         }
     
 }
